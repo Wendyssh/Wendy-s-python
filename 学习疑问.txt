@@ -1,0 +1,86 @@
+疑问：
+
+案例 ex_29_listid.py
+   #id函数举例
+
+a =100
+b =200
+print (id(a))
+print (id(b))
+
+c=a
+print (id(c))
+
+#a和c并非同一份数据
+a =101
+print (a)
+print (c)
+
+#通过 id 可直接判断数据是否相同
+L=[1,2,3,4,5]
+LL = L[:]
+LLL = LL
+
+print (id(L))
+print (id(LL))
+print (id(LLL))
+
+？？？#通过 id 知道，LL 和 LLL 是一份数据，验证代码如下：(不太理解。认为可以按照全局变量和局部变量的概念理解。)
+
+L[1] = 100
+print(L)
+print (LL)
+
+LL[1]=100
+print(LL)
+print(LLL)
+
+
+？？？
+案例(不理解)
+#globals和locals
+#这两个函数叫内置函数
+a=1
+b=2
+
+def fun(c,d):
+    e=111
+    print("Locals ={0}".format(locals()))
+    print("Globals={0}".format(globals()))
+fun(100,200)
+
+四、eval()函数
+1、是内置函数
+2、作用是把字符串当做一个表达式（代码）执行，返回表达式或执行后的结果
+3、语法
+
+eval(string_code, globals=None, locals=None)
+
+4、案例 ex_29_004.py
+x = 100
+y = 200
+#执行 x+y
+#本可以直接写 z = x+y
+z1 = x+y
+z2 = eval("x+y")
+
+print(z1)
+print(z2)
+
+
+
+？？？
+案例 ex_29_006.py(不理解)
+报错：indentationerror
+
+# 递归调用深度限制代码
+x = 0
+
+def fun():
+	global x
+	x += 1
+    print(x)
+    #函数自己调用给自己
+    fun ()
+#调用函数
+fun()
