@@ -1,0 +1,27 @@
+2019110110001340
+疑问1：
+---身份运算符
+     ----is:用来检测两个变量是否是同一个变量
+         ---语法就是var1 is var2
+     ---is not：两个变量不是同一个变量
+     (涉及到内存的问题，但运行结果和老师视频不一样，不理解)
+     案例 ex_25_var运算符.py
+c = "i love wangxiaojing"
+d = "i love wangxiaojing"
+print (c is d)
+
+返回结果是 true。但老师解释称是内存不同。sublime 运行结果是 true。
+
+疑问2：
+C="   OOOOLKDJLAFJLdkajfkldjalf  "
+print("另起一行")
+print(C.strip("O"))
+print()
+print(C.strip("O"),end="------")
+
+
+结果：（不理解，删除指定字符的时候未得到期望结果）
+     DDDDslkajfldkaj-----另起一行
+   OOOOLKDJLAFJLdkajfkldjalf  
+
+   OOOOLKDJLAFJLdkajfkldjalf  ------[Finished in 25.9s]

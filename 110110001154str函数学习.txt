@@ -1,0 +1,98 @@
+11011000
+一、Str内置函数
+help(str.find) 查找函数的方法
+--字符串查找类,find,index,islower（以is开头的是判断，返回布尔值）
+--find:查找字符串中是否包含一个子串
+--index 会报错(valueerror)或引发异常(和find的区别)
+--使用时还可使用区间，左边表示要查找的字符串，第二个参数表示从哪个位置开始查找。
+--rfind,lfind：从左或从右开始查找
+
+
+案例:ex_19_strfunc.py(没有任何结果和出错提示)
+s = "I love python and love Java and love C"
+s1 = "love"
+#返回第一次发现这个字符串的位置，从0开始
+s.find(s1)
+#如未找到，则返回-1
+s2 = "her"
+s.find(s2)
+s.find(s1,1)
+
+#index用法,如未找到则返回错误
+s = "I love python and love Java and love C"
+s1 = "love"
+s.index(s1)
+
+二、判断类函数
+1、此类函数一般用is 开头，如 islower
+   如 :isalpha：判断是否为字母
+   ---该函数默认前提字符串至少包含一个字符，如没有则同样返回 False
+   ---汉字被认为是 alpha 因此该函数不能作为区分英文还是汉语的标识，如需要区分则使用 unicode码
+   --- isdigit, isnumeric, isdecimal 判断数字的函数
+       它们的区别就是英语单词本身的区别。
+       isdigit(): 
+            True：Unicode数字，byte数字（单字节）、全角数字（双字节），罗马数字（I,II)
+            False: 汉字数字（一二三四）
+            Error: 无
+       isdecimal():
+            True:Unicode数字，全角数字（双字节），
+            False: 罗马数字（I,II),汉字数字
+            Error:byte 数字(单字节)
+       isnumeric():
+            True: Unicode 数字，全角数字（双字节），罗马数字，汉字数字
+            False:无
+            Error: byte 数字（单字节）
+       不建议使用，尤其是做爬虫时，尽量使用正则表达式
+     案例
+ #判断是否是数字，罗马数字可能有问题
+chin_num = "一二三四"
+print(chin_num.isdigit())
+print(chin_num.isnumeric())
+print(chin_num.isdecimal())
+
+2、内容判断类
+---startswith/endswith：是否以xxx开头或结尾
+---某个字符串是否以某个子串开头，常用三个参数
+   suffix:被检查的字符串，必须有
+   start:检查范围的开始
+   end: 检查范围的结束
+---islower/isupper：字符串的大小写判断(所有字符串必须都是全部大写或者全部小写)
+   仅限于判断英文字母的大小写情况，对汉字不做判断。
+
+二、操作类函数
+--format:格式化函数（最常用，需要补充知识）
+--strip:删除字符串两边的空格，需要定义删除哪个字符，如果不指定则默认空格。删除的是从头开始符合条件的连续字符（不太理解，是说连续删除多个空格吗）。经常用于爬虫操作。
+  lstrip()删掉左边空格
+  rstrip()删掉右边空格
+--案例
+s= "     DDDDslkajfldkaj   "
+print(s.strip())
+#是否成功删除两边空格无法观察出来，使用end =“-----”
+print(s.strip(), end="-----")
+print()
+print(s.lstrip(),end="-----")
+print()
+print(s.rstrip(),end="-----")
+
+#不删除空格，删除大写字母D,仅适用于字符串两头的字符串。删除指定字符的话，但不删除空格。
+C="   OOOOLKDJLAFJLdkajfkldjalf  "
+print("另起一行")
+print(C.strip("O"))
+print()
+print(C.strip("O"),end="------")
+
+
+结果：（不理解，删除指定字符的时候未得到期望结果）
+DDDDslkajfldkaj
+DDDDslkajfldkaj-----
+DDDDslkajfldkaj   -----
+     DDDDslkajfldkaj-----另起一行
+   OOOOLKDJLAFJLdkajfkldjalf  
+
+   OOOOLKDJLAFJLdkajfkldjalf  ------[Finished in 25.9s]
+
+---join：拼接字符串。需要可以迭代的内容作为参数（可迭代内容可暂时理解为列表）
+
+案例 ex_19_strjoinfunc()
+
+学到77:50 后续是 list列表内容
