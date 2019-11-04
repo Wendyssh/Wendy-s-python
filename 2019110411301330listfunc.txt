@@ -1,0 +1,131 @@
+2019110411301330 L31 内建结构 listdicset
+一、关于列表的函数
+1、python 里面没有array(数组)的概念，因为数组要求数据同质，但Python 是异质数据。
+案例
+#5+4j 中的j 如果换成其它字母如m和k等则提示语法错误，为什么？
+L=['a','I love China',45, 760,(5+4j)]
+print(L)
+
+
+ 2、#append 插入一个内容，在末尾追加
+ 案例
+a =[i for i in range (1,5)]
+print(a)
+a.append(100)
+print(a)
+
+
+ 3、insert 指定位置插入
+ 案例
+ #insert(index,data),插入位置是 index 的前面
+ print(a)
+ a.insert(3,666)
+ print(a)
+
+4、删除 
+（1）del 删除 del list[]
+（2）一般不在 list 中通过insert 插入
+（3）一般使用的是 append 函数和 del 删除（目的很多是pop)
+（4）pop:从对应位置拿出一个元素，即把最后一个元素区出来（相当于删除了）
+案例
+print(a)
+last_ele = a.pop()
+print(last_ele)
+print(a)
+
+（5）remove：在列表中删除指定的值的元素。id是区分是否为同一内存的唯一证据。
+如果被删除的值没在list中会报错，即删除list指定值的操作应该使用 try....except语句或先行进行判断。
+if x in list:
+    list.remove(x)
+案例：
+print(a)
+print(id(a))
+a.remove(666)
+print(a)
+print(id(a))
+#输出的两个id值一样，说明remove操作是在员list上直接操作
+
+(6)clear:清空
+案例
+print(a)
+print(id(a))
+a.clear()
+print(a)
+print(id(a))
+#原来的列表地址（不是值）没有变
+#如果不需要列表地址保持不变，则清空列表可以使用如下方式（地址还在，只不过是不使用他了）
+#a = list()
+#a= []
+
+6、reverse：翻转
+案例
+a = [1,2,3,4,5]
+print(a)
+print(id(a))
+
+a.reverse()
+print(a)
+print(id(a))
+
+#id 地址一样，说明是原地翻转
+
+7、extend:扩展列表：连个列表，把一个直接拼接到后一个列表
+
+#地址一样，说明直接拼的
+
+a = [1,2,3,4,5]
+print(a)
+print(id(a))
+
+b=[6,7,8,9]
+a.reverse()
+print(a)
+print(id(a))
+
+8、count:查找列表中指定值或元素的个数
+案例
+print(a)
+a.append(8)
+a.insert(4,8)
+print(a)
+a_len=a.count(8)
+print(a_len)
+
+9、(1)copy:拷贝，浅拷贝
+#列表类型变量赋值示例
+a =[1,2,3,4,5,666]
+#list类型，简单赋值操作，是传地址
+b=a
+b[3]=777
+print(a)
+print(b)
+
+print("*" * 20)
+#为解决这个问题（原来的列表a也被修改了)，复制的时候需要拷贝
+b = a.copy()
+print(a)
+print(id(a))
+print(b)
+print(id(b))
+#print("*" * 30)
+b[3]=888
+print(a)
+print(b)
+#copy之后，列表a 不再被修改
+
+(2)#深拷贝跟浅拷贝的区别
+案例
+a = [1,2,3,[10,20,30]]
+b = a.copy()
+print(id(a))
+print(id(b))
+print(id(a[3]))
+print(id(b[3]))
+a[3][2]=666
+print(a)
+print(b)
+
+#只拷贝地址，列表a和b都被修改了。出现这个问题是因为 copy 函数是浅拷贝函数，只是拷贝一层内容
+#深拷贝需要使用特定工具。
+
+以上函数都保存在 ex_31_listfunc.py 中。
