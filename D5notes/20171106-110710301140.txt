@@ -1,0 +1,211 @@
+201911061318/110710301140
+学之前的内容
+第4节课
+1、jupyter notebook 数据分析利器(大拿老师的博客教程，不了解)
+2、环境安装
+   gitbook
+   http://www.cnblogs.com/zhouzhishuai/p/8401103.html
+3、MacOX 程序员编程利器
+4、虚拟机：在windows 中开虚拟机，模拟LInux环境
+5、annaconda 3+pycharm代替（需要安装，不了解如何安装）
+
+第5节课
+一、环境安装
+1、推荐 virtualbox + Ubuntu
+2、套件推荐 Anaconda3+pycharm
+3、内存大于4G，推荐虚拟机下启动系统
+4、小于4G，推荐 Windows 下的Anaconda + Pycharm
+5、学完 python 看一遍 PEP 文档官方 Python Enhancement Proposals
+二、注释：
+行注释:#开头
+块注释：以三个连续单引号或双引号开始和结束
+
+三、变量
+1、命名规则：包含数字、大小写字母、下划线
+             数字不可打头
+2、一般在python中，以下划线开头的内容具有特殊含义（不了解需查阅），不建议使用
+3、大小写不一样，即大小写敏感
+4、推荐
+   （1）使用具有固定含义的英文单词或缩写，srv=server skt=socket，一般以 posix命名规则为主
+   （2）驼峰命名法
+        大驼峰：每个单词第一个字母均大写，给类命名使用此方法 (MyFirstLove,IntOne)
+        小驼峰：类似大驼峰，但第一个字母小写 (myFirstLove,intOne)
+        posix 写法：
+             多个单词用下划线连接，单词全部小写 my_first_love,int_one
+5、保留字和关键字
+import keyword
+print(keyword.kwlist)
+
+输出结果：
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+
+6、变量声明
+var name=var_value
+var1=var2=var3=va_value
+var1,var2,var3=v1,v2,v3
+
+7、 变量类型
+（1） 严格意义上讲，python 只有一个类型
+（2）六大类型：数字、字符串、列表、元组、字典、集合
+#数字类型
+-python 中的数字没有大小限制
+#常见数字分类
+-整数
+     -没有小数部分
+     -包括正数、负数、0
+     -二进制
+         -只有1和0
+         -以0b开头的01串 如 0b110 和0b11110
+     -八进制
+         -以0o开头，0到7之间的数字串
+         -如0O71
+     -十六进制
+         -以0x组成的由0-9、a-r组成的串
+         -如0xffff
+
+-浮点数
+    -就是小数
+    -例如 3. 是 3.0的缩写；.4是0.4的缩写
+-科学技术法
+    -和数学上的概念一致。1.84e2
+-复数 complex
+    -和数学上的概念一样
+    -我们把形如z=a+bi（a,b均为实数）的数称为复数，其中a称为实部，b称为虚部，i称为虚数单位。当z的虚部等于零时，常称z为实数；当z的虚部不等于零时，实部等于零时，常称z为纯虚数。复数域是实数域的代数闭包，即任何复系数多项式在复数域中总有根。（百度）
+-布尔值
+    -真/假 True/False
+    -布尔值可以在 python 中当数值使用。True=1,False=0
+         -案例 （输出是19）
+         age=18+True
+         print(age)
+
+#字符串
+-单引号、双引号（含义一样）
+-三引号（用来表示多行信息）
+    -案例
+love3="""
+我
+了解了框架来看
+连接了解了框架来看精力可将拉开距离距离可
+拉开距离加快了
+"""
+print(love3)
+(也可以是开头结尾的 ''')
+
+#None 类型
+-表示没有，通常用来占位
+-比如返回，用来返回一个空
+
+#表达式：数学中的式子概念
+
+#运算符
+##比较运算符
+  --对两个内容进行比较的运算符
+  --结果一定是布尔值
+  案例
+  #其它符号 >,>=,<,<=
+print("wangxiaojing">"liudana")
+print("WangXiaoJing">"LiuDaNa")
+(结果是True，是否正确？是按照26个英文字母比较的吗？在后面的字母大于前面的？百度)
+
+#c=c+3可写成 c+=3
+
+第11课
+一、程序三种结构
+    -顺序
+    -循环
+    -分支
+二、分支结构
+   -基本语法
+    if 条件表达式：（结果是布尔值，注意缩进）
+    语句1
+    语句2
+    语句3
+    ......
+      -流程图（菱形是做判断，方框是做执行单元）
+      -字符串的真假：只有空字符串为 False（即字符串长度为0），其余为True(有内容，包括空格在内）
+    -双向分支
+        -if...else...
+        -二选一
+    #input的作用：
+    --在屏幕上输出括号内的字符串
+    --接受用户输入的内容并返回到程序
+    --Input 返回的内容一定是字符串类型
+    
+    -多路分支
+     ---elif 可以有多个，根据实际情况
+     ---else可选
+     ---多路分支仅执行一种情况
+
+     语法：
+    if 条件表达式：
+        语句1
+    elif 条件表达式：
+        语句2
+    elif 条件表达式：
+        语句2
+    else:
+        语句1
+    ....
+   -if 语句补充
+    --if 语句可以嵌套使用，不推荐（有可能报错）
+    --python 没有switch 语句
+
+成绩输入作业 ex_if分支结构成绩.py
+
+11071020
+三、循环语句(for,while)
+1、for 语法：
+for 变量 in 序列：
+    语句1
+    语句2
+    ....
+
+#for-else语句
+---for 循环结束的时候，有时需要执行一些收尾工作，用else
+---else 是可选的（锦上添花的作用）
+
+
+#break,continue,pass
+--break:无条件结束整个循环，简称循环猝死
+--break语句只跳出最里层，剩下继续执行
+
+--continue
+--立即结束本轮循环，继续执行
+
+--pass
+--只是占位符
+--pass后的语句仍然执行，（且结果中不会出现空行）
+
+--range 函数
+--生成有序数列
+--生成数字队列可以定制
+--range的生成序列的两个数字是左包括右不包括
+--一般在python中，两个表示范围的数字都是左边包括右边不包括，randint函数是个特例(sort和randint可以生成无序循环)
+--range函数在python2.x和python3.x中有巨大区别
+--案例 ex_13_range.py
+
+#range 案例1
+#生成1到100的序列：右边不包括，所以应该右边的数字应该是101
+dig_list=range(1,101)
+for dig in dig_list:
+	print(dig)
+
+#range2
+#打印从1到9的数字
+for i in range(1,10):
+	print(i)
+
+2、while 循环
+---表示当条件成立时就循环，适用于不知道具体循环次数但能确定在某个条件成立时就循环
+---while语法
+    while 条件表达式：
+        语句块
+    #另外一种表达方式：
+    while 条件表达式：
+        语句块1
+    else:
+        语句块2
+---else是可选的
+案例:ex_14_while.py
+
+
