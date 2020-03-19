@@ -1,0 +1,56 @@
+D11
+1、学到继承那一章后发现学的东西比较空，好像是过一眼就结束了，于是打算做一些练习，所以找了近一个小时后，选择了廖雪峰的网络课程，可以学完一小节就进行测试。现在正在下载 python 3.8 版本，希望能够花一两天的时间把基础内容再夯实一下，顺便把一些细节内容再整理一下搞清楚。
+
+2、转义字符\的详细解释
+https://docs.python.org/2.0/ref/strings.html
+ The backslash (\) character is used to escape characters that otherwise have a special meaning, such as newline, backslash itself, or the quote character. 
+
+Escape Sequence 	Meaning 
+\newline	Ignored
+\\	Backslash (\)
+\'	Single quote (')
+\"	Double quote (")
+\a	ASCII Bell (BEL)
+\b	ASCII Backspace (BS)
+\f	ASCII Formfeed (FF)
+\n	ASCII Linefeed (LF)
+\r	ASCII Carriage Return (CR)
+\t	ASCII Horizontal Tab (TAB)
+\v	ASCII Vertical Tab (VT)
+\ooo	ASCII character with octal value ooo
+\xhh...	ASCII character with hex value hh...
+
+https://www.liaoxuefeng.com/wiki/1016959663602400/1017063826246112
+转义字符\可以转义很多字符，比如\n表示换行，\t表示制表符，字符\本身也要转义，所以\\表示的字符就是\
+如果字符串里面有很多字符都需要转义，就需要加很多\，为了简化，Python还允许用r''表示''内部的字符串默认不转义
+如果字符串内部有很多换行，用\n写在一行里不好阅读，为了简化，Python允许用'''...'''的格式表示多行内容
+
+3、Python支持多种数据类型，在计算机内部，可以把任何数据都看成一个“对象”，而变量就是在程序中用来指向这些数据对象的，对变量赋值就是把数据和变量给关联起来。
+对变量赋值x = y是把变量x指向真正的对象，该对象是变量y所指向的。随后对变量y的赋值不影响变量x的指向。
+https://www.liaoxuefeng.com/wiki/1016959663602400/1018877595088352
+
+4、整数运算结果永远是精确的：//（地板除：只取结果的整数部分），%取余数，也是整数
+     问题：/做除法运算，结果是浮点数，也是精确的吗？（有限小数和无限小数）
+
+5、问题：同时安装了3.6和3.8，如何选择使用3.8（即命令行显示3.8而非3.6）
+
+6、问题：小数转百分数的问题（占位符知识）要求留下百分比小数点后一位，用%.1f%%，同理如果小数点后两位%.2f%%……
+
+小明的成绩从去年的72分提升到了今年的85分，请计算小明成绩提升的百分点，并用字符串格式化显示出'xx.x%'，只保留小数点后1位：
+
+代码部分：
+
+# -*- coding: utf-8 -*-
+
+s1 = 72
+
+s2 = 85
+
+r = (s2-s1)/s1*100    #小明成绩进步的百分比
+
+print('%.1f%%' %r)    #%.1f表示将百分比r格式化为保留小数点后一位，%%是‘%’的转义字符。
+（卡壳的地方：%.1f表示将百分比r格式化为保留小数点后一位
+r 已经是百分号之前的数字，所以只需在后面加一个%即可，但r 要求保留一个小数位，所以要把多个小数位的浮点数转换为一个小数位的浮点数，即小数位为一位的浮点数占位，%.1f%%%r）
+
+7、需要详细学习格式化 format() 内容和占位符内容
+
